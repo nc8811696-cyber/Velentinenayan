@@ -19,15 +19,52 @@ body{
 h1,h2{
   font-family:'Great Vibes',cursive;
   color:#d6336c;
-  text-shadow:0 4px 12px rgba(214,51,108,.35);
 }
-section{
-  padding:70px 20px;
-  animation:fadeUp 1s ease both;
+section{padding:80px 20px;}
+
+/* ===== LOCK SCREEN ===== */
+.lock{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg,#ffd1dc,#fff0f5);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
 }
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(30px);}
-  to{opacity:1;transform:translateY(0);}
+.lock-box{
+  background:#fff;
+  padding:35px;
+  border-radius:30px;
+  width:90%;
+  max-width:340px;
+  box-shadow:0 20px 40px rgba(214,51,108,.3);
+}
+.lock-box h2{
+  font-size:2.2rem;
+}
+.lock-box input{
+  width:100%;
+  padding:14px;
+  border-radius:25px;
+  border:1px solid #ddd;
+  font-size:1rem;
+  margin-top:15px;
+  text-align:center;
+}
+.lock-box button{
+  margin-top:15px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:#ff4d6d;
+  color:#fff;
+  font-size:1rem;
+}
+.error{
+  color:#ff4d6d;
+  margin-top:10px;
+  display:none;
 }
 
 /* ===== HERO ===== */
@@ -37,18 +74,17 @@ section{
   flex-direction:column;
   justify-content:center;
 }
-.hero p{color:#a61e4d;}
 .names{
   font-size:1.6rem;
   color:#ff4d6d;
   margin-top:15px;
 }
 
-/* ===== GLASS CARDS ===== */
+/* ===== GLASS CARD ===== */
 .card-box{
   max-width:900px;
   margin:auto;
-  background:rgba(255,255,255,.85);
+  background:rgba(255,255,255,.9);
   padding:30px;
   border-radius:30px;
   box-shadow:0 20px 40px rgba(255,105,135,.25);
@@ -67,9 +103,7 @@ section{
   width:100%;
   border-radius:22px;
   box-shadow:0 15px 35px rgba(255,105,135,.35);
-  transition:.4s;
 }
-.gallery img:hover{transform:scale(1.06);}
 
 /* ===== WHY I LOVE YOU ===== */
 .cards{
@@ -80,31 +114,54 @@ section{
   margin:auto;
 }
 .card{
-  background:linear-gradient(145deg,#fff,#ffe6ef);
+  background:#fff;
   padding:22px;
   border-radius:25px;
   box-shadow:0 15px 30px rgba(214,51,108,.3);
-  transition:.4s;
 }
-.card:hover{transform:translateY(-10px);}
+
+/* ===== TIMELINE ===== */
+.timeline-wrap{
+  max-width:900px;
+  margin:auto;
+  position:relative;
+}
+.timeline-wrap::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:4px;
+  height:100%;
+  background:#ff4d6d;
+}
+.timeline-item{
+  width:100%;
+  display:flex;
+  margin:40px 0;
+}
+.timeline-item.right{justify-content:flex-end;}
+.timeline-card{
+  width:45%;
+  background:#fff;
+  padding:25px;
+  border-radius:30px;
+  box-shadow:0 20px 40px rgba(255,105,135,.3);
+}
+.timeline-date{
+  color:#ff4d6d;
+  font-weight:600;
+  margin-bottom:10px;
+}
 
 /* ===== LETTER ===== */
 .letter{
   max-width:900px;
   margin:auto;
-  background:linear-gradient(145deg,#fff,#ffe6ef);
+  background:#fff;
   padding:35px;
   border-radius:35px;
   box-shadow:0 25px 45px rgba(255,105,135,.35);
-  line-height:1.9;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  background:#ffd1dc;
-  padding:25px;
-  color:#a61e4d;
-  box-shadow:0 -15px 30px rgba(214,51,108,.25);
 }
 
 /* ===== POPUP ===== */
@@ -115,7 +172,7 @@ footer{
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:999;
+  z-index:1000;
 }
 .popup-box{
   background:#fff;
@@ -129,12 +186,6 @@ footer{
   position:relative;
   height:70px;
 }
-button{
-  padding:12px 22px;
-  border:none;
-  border-radius:25px;
-  font-size:1rem;
-}
 #yesBtn{background:#ff4d6d;color:#fff;}
 #noBtn{
   background:#999;
@@ -142,13 +193,48 @@ button{
   position:absolute;
   left:120px;
 }
+button{
+  padding:12px 22px;
+  border:none;
+  border-radius:25px;
+}
+
+/* ===== CONFETTI ===== */
+.confetti{
+  position:fixed;
+  width:10px;
+  height:10px;
+  top:-10px;
+  animation:fall 3s linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .timeline-wrap::before{left:20px;}
+  .timeline-item{justify-content:flex-start;}
+  .timeline-card{width:85%;margin-left:40px;}
+}
 </style>
 </head>
 
 <body>
 
-<!-- ===== POPUP ===== -->
-<div class="popup" id="popup">
+<!-- 🔐 LOCK SCREEN -->
+<div class="lock" id="lock">
+  <div class="lock-box">
+    <h2>Only for Janshi ❤️</h2>
+    <p>Enter the secret password</p>
+    <input type="password" id="pass" placeholder="Password">
+    <button onclick="unlock()">Unlock 💖</button>
+    <div class="error" id="error">Wrong password 😢</div>
+  </div>
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup" style="display:none;">
   <div class="popup-box">
     <h2>Will you be my Valentine? 💖</h2>
     <div class="buttons">
@@ -158,24 +244,24 @@ button{
   </div>
 </div>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero">
   <h1>Janshi, You Are My Forever ❤️</h1>
   <p>A love story written by destiny</p>
   <div class="names">Nayan & Janshi</div>
 </section>
 
-<!-- ===== STORY ===== -->
+<!-- STORY -->
 <section>
   <h2>Our Story 💕</h2>
   <div class="card-box">
-    We met for the first time during Navratri. Our families went for tea together at Rajwadi.
-    At first, we talked casually. Slowly, those conversations became comfort.
-    That comfort turned into friendship, and with time, friendship quietly turned into love.
+    We met during Navratri, over a simple cup of tea at Rajwadi.
+    Casual talks turned into comfort, comfort into friendship,
+    and friendship slowly turned into love.
   </div>
 </section>
 
-<!-- ===== GALLERY ===== -->
+<!-- GALLERY -->
 <section>
   <h2>Our Memories 📸</h2>
   <div class="gallery">
@@ -185,7 +271,7 @@ button{
   </div>
 </section>
 
-<!-- ===== WHY I LOVE YOU ===== -->
+<!-- WHY I LOVE YOU -->
 <section>
   <h2>Why I Love You 💖</h2>
   <div class="cards">
@@ -197,36 +283,32 @@ button{
   </div>
 </section>
 
-<!-- ===== TIMELINE (REWRITTEN) ===== -->
+<!-- TIMELINE -->
 <section>
   <h2>Our Love Timeline ⏳</h2>
-  <div class="card-box">
-    💫 <b>10 September 2025 – When It All Began</b><br><br>
-    During Navratri, a simple meeting, a cup of tea at Rajwadi,
-    and a few innocent conversations marked the beginning of something special.
-    That day didn’t feel magical at first,
-    but destiny was quietly writing our story.
-
-    <br><br><br>
-
-    ❤️ <b>18 December 2025 – The Day We Became “Us”</b><br><br>
-    Friendship turned into feelings, and feelings turned into love.
-    On this day, my heart chose you completely.
-    Not just for a moment, but for every tomorrow,
-    with a promise of togetherness, trust, and forever.
+  <div class="timeline-wrap">
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">💫 10 September 2025</div>
+        Destiny quietly brought us together during Navratri.
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="timeline-card">
+        <div class="timeline-date">❤️ 18 December 2025</div>
+        Friendship turned into love — and love into forever.
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===== LETTER ===== -->
+<!-- LETTER -->
 <section>
   <h2>A Letter From My Heart 💌</h2>
   <div class="letter">
     Dear Janshi,<br><br>
-    From the moment you came into my life, everything changed.
-    You became my happiness, my peace, and my strength.
-    Every smile of yours means the world to me.<br><br>
-    Please don’t ever leave me.
-    I love you more than words can ever explain.<br><br>
+    You are my happiness, my peace, and my strength.
+    Every smile of yours lights up my world.<br><br>
     Forever yours,<br>
     Nayan ❤️
   </div>
@@ -236,18 +318,27 @@ button{
   Made with infinite love by Nayan for Janshi ❤️
 </footer>
 
-<!-- ===== JS ===== -->
+<!-- JS -->
 <script>
-const popup=document.getElementById("popup");
+const PASSWORD="janshi❤️"; // 🔑 CHANGE PASSWORD HERE
+
+function unlock(){
+  const input=document.getElementById("pass").value;
+  const err=document.getElementById("error");
+  if(input===PASSWORD){
+    document.getElementById("lock").style.display="none";
+    document.getElementById("popup").style.display="flex";
+  }else{
+    err.style.display="block";
+  }
+}
+
 const yesBtn=document.getElementById("yesBtn");
 const noBtn=document.getElementById("noBtn");
 
-document.body.style.overflow="hidden";
-
 yesBtn.onclick=()=>{
-  popup.style.display="none";
-  document.body.style.overflow="auto";
-  alert("Yayyy 💖 I love you Janshi ❤️");
+  document.getElementById("popup").style.display="none";
+  confetti();
 };
 
 function moveNo(){
@@ -257,27 +348,17 @@ function moveNo(){
 noBtn.addEventListener("mouseover",moveNo);
 noBtn.addEventListener("touchstart",moveNo);
 
-/* Floating hearts */
-setInterval(()=>{
-  const h=document.createElement("div");
-  h.innerHTML="❤️";
-  h.style.position="fixed";
-  h.style.left=Math.random()*100+"vw";
-  h.style.bottom="-20px";
-  h.style.fontSize=(14+Math.random()*20)+"px";
-  h.style.opacity="0.8";
-  h.style.animation="float 6s linear";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),6000);
-},700);
-</script>
-
-<style>
-@keyframes float{
-  from{transform:translateY(0);opacity:0;}
-  to{transform:translateY(-110vh);opacity:1;}
+function confetti(){
+  for(let i=0;i<80;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4000);
+  }
 }
-</style>
+</script>
 
 </body>
 </html>
