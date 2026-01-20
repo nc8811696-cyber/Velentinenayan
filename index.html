@@ -11,29 +11,40 @@
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(180deg,#ffe4ec,#fff0f5,#ffffff);
+  background:linear-gradient(#ffe4ec,#fff0f5,#ffffff);
   text-align:center;
-  overflow-x:hidden;
 }
+
 h1,h2{
   font-family:'Great Vibes',cursive;
   color:#d6336c;
 }
-section{padding:60px 20px;}
+
+section{
+  padding:60px 20px;
+}
+
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
 }
-.names{font-size:1.5rem;color:#ff4d6d;margin-top:15px;}
-
-.story,.timeline,.letter{
-  max-width:800px;
-  margin:auto;
-  line-height:1.9;
+.names{
+  font-size:1.5rem;
+  color:#ff4d6d;
+  margin-top:10px;
 }
 
+/* STORY / TEXT */
+.story,.timeline{
+  max-width:800px;
+  margin:auto;
+  line-height:1.8;
+}
+
+/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -44,9 +55,9 @@ section{padding:60px 20px;}
 .gallery img{
   width:100%;
   border-radius:20px;
-  box-shadow:0 10px 25px rgba(255,105,135,.3);
 }
 
+/* WHY I LOVE YOU */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -57,17 +68,20 @@ section{padding:60px 20px;}
 .card{
   background:#fff;
   padding:20px;
-  border-radius:25px;
-  box-shadow:0 10px 25px rgba(214,51,108,.3);
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
+/* LETTER */
 .letter{
+  max-width:800px;
+  margin:auto;
   background:#fff;
   padding:30px;
-  border-radius:30px;
-  box-shadow:0 15px 30px rgba(255,105,135,.3);
+  border-radius:25px;
 }
 
+/* FOOTER */
 footer{
   background:#ffd1dc;
   padding:20px;
@@ -78,16 +92,16 @@ footer{
 .popup{
   position:fixed;
   inset:0;
-  background:rgba(255,182,193,.9);
+  background:rgba(255,182,193,0.95);
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   z-index:999;
 }
 .popup-box{
   background:#fff;
   padding:30px;
-  border-radius:30px;
+  border-radius:25px;
   width:90%;
   max-width:320px;
 }
@@ -101,11 +115,13 @@ button{
   border:none;
   border-radius:25px;
   font-size:1rem;
-  cursor:pointer;
 }
-#yesBtn{background:#ff4d6d;color:#fff;}
+#yesBtn{
+  background:#ff4d6d;
+  color:#fff;
+}
 #noBtn{
-  background:#adb5bd;
+  background:#999;
   color:#fff;
   position:absolute;
   left:120px;
@@ -147,9 +163,9 @@ button{
 <section>
   <h2>Our Memories 📸</h2>
   <div class="gallery">
-    <img src="photo1.jpg" alt="">
-    <img src="photo2.jpg" alt="">
-    <img src="photo3.jpg" alt="">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
   </div>
 </section>
 
@@ -192,24 +208,24 @@ button{
   Made with infinite love by Nayan for Janshi ❤️
 </footer>
 
-<!-- INLINE JS -->
+<!-- JS (SIMPLE & SAFE) -->
 <script>
 const popup=document.getElementById("popup");
 const yesBtn=document.getElementById("yesBtn");
 const noBtn=document.getElementById("noBtn");
 
-yesBtn.onclick=()=>{
+document.body.style.overflow="hidden";
+
+yesBtn.onclick=function(){
   popup.style.display="none";
-  alert("Yayyy 💖 I love you Janshi ❤️");
+  document.body.style.overflow="auto";
 };
 
-function moveNo(){
+noBtn.onmouseover=noBtn.ontouchstart=function(){
   noBtn.style.left=Math.random()*200+"px";
   noBtn.style.top=Math.random()*40+"px";
-}
-noBtn.addEventListener("mouseover",moveNo);
-noBtn.addEventListener("touchstart",moveNo);
+};
 </script>
 
 </body>
-</html>
+      </html>
