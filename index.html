@@ -19,8 +19,9 @@ body{
 h1,h2{
   font-family:'Great Vibes',cursive;
   color:#d6336c;
+  text-shadow:0 6px 14px rgba(214,51,108,.35);
 }
-section{padding:80px 20px;}
+section{padding:90px 20px;}
 
 /* ===== LOCK SCREEN ===== */
 .lock{
@@ -30,41 +31,76 @@ section{padding:80px 20px;}
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:2000;
+  z-index:3000;
 }
 .lock-box{
   background:#fff;
-  padding:35px;
-  border-radius:30px;
+  padding:40px;
+  border-radius:35px;
   width:90%;
-  max-width:340px;
-  box-shadow:0 20px 40px rgba(214,51,108,.3);
+  max-width:360px;
+  box-shadow:0 30px 60px rgba(214,51,108,.35);
 }
-.lock-box h2{
-  font-size:2.2rem;
-}
+.lock-box h2{font-size:2.4rem;}
+.lock-box p{color:#a61e4d;}
 .lock-box input{
   width:100%;
-  padding:14px;
-  border-radius:25px;
+  padding:15px;
+  border-radius:30px;
   border:1px solid #ddd;
   font-size:1rem;
-  margin-top:15px;
+  margin-top:18px;
   text-align:center;
 }
 .lock-box button{
-  margin-top:15px;
-  padding:12px 25px;
+  margin-top:20px;
+  padding:14px 30px;
   border:none;
-  border-radius:25px;
+  border-radius:30px;
   background:#ff4d6d;
   color:#fff;
   font-size:1rem;
 }
 .error{
   color:#ff4d6d;
-  margin-top:10px;
+  margin-top:12px;
   display:none;
+}
+
+/* ===== POPUP ===== */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(255,182,193,.96);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+.popup-box{
+  background:#fff;
+  padding:35px;
+  border-radius:35px;
+  width:90%;
+  max-width:350px;
+}
+.buttons{
+  margin-top:25px;
+  position:relative;
+  height:80px;
+}
+button{
+  padding:14px 26px;
+  border:none;
+  border-radius:30px;
+  font-size:1rem;
+}
+#yesBtn{background:#ff4d6d;color:#fff;}
+#noBtn{
+  background:#aaa;
+  color:#fff;
+  position:absolute;
+  left:140px;
 }
 
 /* ===== HERO ===== */
@@ -74,148 +110,67 @@ section{padding:80px 20px;}
   flex-direction:column;
   justify-content:center;
 }
+.hero p{color:#a61e4d;font-size:1.1rem;}
 .names{
-  font-size:1.6rem;
+  font-size:1.8rem;
   color:#ff4d6d;
-  margin-top:15px;
+  margin-top:18px;
 }
 
-/* ===== GLASS CARD ===== */
-.card-box{
-  max-width:900px;
+/* ===== GLASS BOX ===== */
+.box{
+  max-width:950px;
   margin:auto;
   background:rgba(255,255,255,.9);
-  padding:30px;
-  border-radius:30px;
-  box-shadow:0 20px 40px rgba(255,105,135,.25);
-  line-height:1.9;
-}
-
-/* ===== GALLERY ===== */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-  max-width:900px;
-  margin:auto;
-}
-.gallery img{
-  width:100%;
-  border-radius:22px;
-  box-shadow:0 15px 35px rgba(255,105,135,.35);
+  padding:40px;
+  border-radius:40px;
+  box-shadow:0 35px 60px rgba(255,105,135,.35);
+  line-height:2;
 }
 
 /* ===== WHY I LOVE YOU ===== */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-  max-width:900px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+  max-width:950px;
   margin:auto;
 }
 .card{
-  background:#fff;
-  padding:22px;
-  border-radius:25px;
-  box-shadow:0 15px 30px rgba(214,51,108,.3);
-}
-
-/* ===== TIMELINE ===== */
-.timeline-wrap{
-  max-width:900px;
-  margin:auto;
-  position:relative;
-}
-.timeline-wrap::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:0;
-  width:4px;
-  height:100%;
-  background:#ff4d6d;
-}
-.timeline-item{
-  width:100%;
-  display:flex;
-  margin:40px 0;
-}
-.timeline-item.right{justify-content:flex-end;}
-.timeline-card{
-  width:45%;
-  background:#fff;
-  padding:25px;
+  background:linear-gradient(145deg,#fff,#ffe6ef);
+  padding:26px;
   border-radius:30px;
-  box-shadow:0 20px 40px rgba(255,105,135,.3);
-}
-.timeline-date{
-  color:#ff4d6d;
-  font-weight:600;
-  margin-bottom:10px;
+  box-shadow:0 22px 40px rgba(214,51,108,.35);
 }
 
-/* ===== LETTER ===== */
-.letter{
-  max-width:900px;
+/* ===== FUTURE PROMISE ===== */
+.promise{
+  background:linear-gradient(160deg,#ffe6ef,#fff);
+  max-width:950px;
   margin:auto;
-  background:#fff;
-  padding:35px;
-  border-radius:35px;
-  box-shadow:0 25px 45px rgba(255,105,135,.35);
+  padding:45px;
+  border-radius:45px;
+  box-shadow:0 40px 70px rgba(255,105,135,.4);
+  line-height:2;
 }
 
-/* ===== POPUP ===== */
-.popup{
-  position:fixed;
-  inset:0;
-  background:rgba(255,182,193,.95);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
-}
-.popup-box{
-  background:#fff;
+/* ===== FOOTER ===== */
+footer{
+  background:#ffd1dc;
   padding:30px;
-  border-radius:30px;
-  width:90%;
-  max-width:320px;
-}
-.buttons{
-  margin-top:20px;
-  position:relative;
-  height:70px;
-}
-#yesBtn{background:#ff4d6d;color:#fff;}
-#noBtn{
-  background:#999;
-  color:#fff;
-  position:absolute;
-  left:120px;
-}
-button{
-  padding:12px 22px;
-  border:none;
-  border-radius:25px;
+  color:#a61e4d;
 }
 
 /* ===== CONFETTI ===== */
 .confetti{
   position:fixed;
-  width:10px;
-  height:10px;
+  width:12px;
+  height:12px;
   top:-10px;
-  animation:fall 3s linear forwards;
+  animation:fall 3.5s linear forwards;
 }
 @keyframes fall{
-  to{transform:translateY(110vh) rotate(360deg);}
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  .timeline-wrap::before{left:20px;}
-  .timeline-item{justify-content:flex-start;}
-  .timeline-card{width:85%;margin-left:40px;}
+  to{transform:translateY(120vh) rotate(720deg);}
 }
 </style>
 </head>
@@ -233,7 +188,7 @@ button{
   </div>
 </div>
 
-<!-- POPUP -->
+<!-- 💖 VALENTINE POPUP -->
 <div class="popup" id="popup" style="display:none;">
   <div class="popup-box">
     <h2>Will you be my Valentine? 💖</h2>
@@ -254,20 +209,11 @@ button{
 <!-- STORY -->
 <section>
   <h2>Our Story 💕</h2>
-  <div class="card-box">
+  <div class="box">
     We met during Navratri, over a simple cup of tea at Rajwadi.
-    Casual talks turned into comfort, comfort into friendship,
-    and friendship slowly turned into love.
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section>
-  <h2>Our Memories 📸</h2>
-  <div class="gallery">
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
+    What started as normal conversation slowly became comfort.
+    Comfort turned into friendship, and friendship became love —
+    without us realizing when it happened.
   </div>
 </section>
 
@@ -275,40 +221,40 @@ button{
 <section>
   <h2>Why I Love You 💖</h2>
   <div class="cards">
+    <div class="card">You understand me without words</div>
     <div class="card">You support me in every situation</div>
-    <div class="card">Your loyalty makes me feel safe</div>
-    <div class="card">Your cuteness melts my heart</div>
-    <div class="card">I love your beautiful nature</div>
-    <div class="card">You make me feel truly loved</div>
+    <div class="card">Your smile fixes my worst days</div>
+    <div class="card">You make me feel safe and valued</div>
+    <div class="card">Your loyalty means everything to me</div>
+    <div class="card">With you, life feels complete</div>
   </div>
 </section>
 
-<!-- TIMELINE -->
+<!-- FUTURE PROMISE -->
 <section>
-  <h2>Our Love Timeline ⏳</h2>
-  <div class="timeline-wrap">
-    <div class="timeline-item">
-      <div class="timeline-card">
-        <div class="timeline-date">💫 10 September 2025</div>
-        Destiny quietly brought us together during Navratri.
-      </div>
-    </div>
-    <div class="timeline-item right">
-      <div class="timeline-card">
-        <div class="timeline-date">❤️ 18 December 2025</div>
-        Friendship turned into love — and love into forever.
-      </div>
-    </div>
+  <h2>Our Future Promise 💍</h2>
+  <div class="promise">
+    Janshi, this is my promise to you.<br><br>
+    I promise to stand by you in every situation —
+    in happiness, in sadness, in success, and in struggle.<br><br>
+    I promise to respect you, care for you,
+    and love you more with every passing day.<br><br>
+    No matter where life takes us,
+    my hand will always be holding yours.<br><br>
+    Today, tomorrow, and forever —
+    this journey is ours. ❤️
   </div>
 </section>
 
 <!-- LETTER -->
 <section>
   <h2>A Letter From My Heart 💌</h2>
-  <div class="letter">
+  <div class="box">
     Dear Janshi,<br><br>
-    You are my happiness, my peace, and my strength.
-    Every smile of yours lights up my world.<br><br>
+    Loving you is the most beautiful thing I have ever done.
+    You are my happiness, my peace, and my strength.<br><br>
+    Please never leave my hand.
+    I promise to love you endlessly.<br><br>
     Forever yours,<br>
     Nayan ❤️
   </div>
@@ -320,7 +266,7 @@ button{
 
 <!-- JS -->
 <script>
-const PASSWORD="janshi❤️"; // 🔑 CHANGE PASSWORD HERE
+const PASSWORD = "janshi@2025"; // 🔑 CHANGE PASSWORD HERE
 
 function unlock(){
   const input=document.getElementById("pass").value;
@@ -342,20 +288,20 @@ yesBtn.onclick=()=>{
 };
 
 function moveNo(){
-  noBtn.style.left=Math.random()*200+"px";
-  noBtn.style.top=Math.random()*40+"px";
+  noBtn.style.left=Math.random()*240+"px";
+  noBtn.style.top=Math.random()*60+"px";
 }
 noBtn.addEventListener("mouseover",moveNo);
 noBtn.addEventListener("touchstart",moveNo);
 
 function confetti(){
-  for(let i=0;i<80;i++){
+  for(let i=0;i<120;i++){
     const c=document.createElement("div");
     c.className="confetti";
     c.style.left=Math.random()*100+"vw";
-    c.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    c.style.background=`hsl(${Math.random()*360},100%,75%)`;
     document.body.appendChild(c);
-    setTimeout(()=>c.remove(),4000);
+    setTimeout(()=>c.remove(),4500);
   }
 }
 </script>
