@@ -1,31 +1,27 @@
-// POPUP LOGIC
-const popup = document.getElementById("popup");
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
+document.addEventListener("DOMContentLoaded", function () {
 
-yesBtn.onclick = () => {
-  popup.style.display = "none";
-  alert("Yayyy! 💖 I love you Janshi ❤️");
-};
+  const popup = document.getElementById("popup");
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
 
-// NO BUTTON RUNS AWAY 😈
-noBtn.addEventListener("touchstart", moveButton);
-noBtn.addEventListener("mouseover", moveButton);
+  if (!popup || !yesBtn || !noBtn) {
+    console.log("Popup elements missing");
+    return;
+  }
 
-function moveButton(){
-  const x = Math.random() * 200;
-  const y = Math.random() * 40;
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-}
+  yesBtn.onclick = function () {
+    popup.style.display = "none";
+    alert("Yayyy 💖 I love you Janshi ❤️");
+  };
 
-// FLOATING HEARTS
-setInterval(()=>{
-  const heart=document.createElement("div");
-  heart.className="heart";
-  heart.innerHTML="❤️";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(14+Math.random()*20)+"px";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),6000);
-},500);
+  function moveNo() {
+    const x = Math.random() * 200;
+    const y = Math.random() * 80;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+
+  noBtn.addEventListener("mouseover", moveNo);
+  noBtn.addEventListener("touchstart", moveNo);
+
+});
