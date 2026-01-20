@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* ================= BASE ================= */
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
@@ -23,7 +22,7 @@ h1,h2{
 }
 section{padding:90px 20px;}
 
-/* ================= LOCK SCREEN ================= */
+/* LOCK */
 .lock{
   position:fixed;
   inset:0;
@@ -31,7 +30,7 @@ section{padding:90px 20px;}
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:5000;
+  z-index:9999;
 }
 .lock-box{
   background:#fff;
@@ -60,7 +59,7 @@ section{padding:90px 20px;}
 }
 .error{color:#ff4d6d;display:none;margin-top:10px;}
 
-/* ================= POPUP ================= */
+/* POPUP */
 .popup{
   position:fixed;
   inset:0;
@@ -68,7 +67,7 @@ section{padding:90px 20px;}
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:4000;
+  z-index:9000;
 }
 .popup-box{
   background:#fff;
@@ -95,7 +94,7 @@ button{
   left:140px;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -109,7 +108,7 @@ button{
   margin-top:18px;
 }
 
-/* ================= CONTENT BOX ================= */
+/* BOX */
 .box{
   max-width:950px;
   margin:auto;
@@ -120,7 +119,31 @@ button{
   line-height:2;
 }
 
-/* ================= WHY LOVE ================= */
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+  max-width:950px;
+  margin:auto;
+}
+.gallery figure{
+  background:#fff;
+  padding:12px;
+  border-radius:24px;
+  box-shadow:0 18px 35px rgba(255,105,135,.35);
+}
+.gallery img{
+  width:100%;
+  border-radius:18px;
+}
+.gallery figcaption{
+  margin-top:10px;
+  color:#a61e4d;
+  font-size:.95rem;
+}
+
+/* WHY LOVE */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -135,7 +158,7 @@ button{
   box-shadow:0 22px 40px rgba(214,51,108,.35);
 }
 
-/* ================= TIMELINE ================= */
+/* TIMELINE */
 .timeline{
   max-width:900px;
   margin:auto;
@@ -166,7 +189,7 @@ button{
 }
 .t-date{color:#ff4d6d;font-weight:600;}
 
-/* ================= FUTURE PROMISE ================= */
+/* PROMISE */
 .promise{
   max-width:950px;
   margin:auto;
@@ -177,14 +200,14 @@ button{
   line-height:2;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   background:#ffd1dc;
   padding:30px;
   color:#a61e4d;
 }
 
-/* ================= FIREWORKS ================= */
+/* FIREWORKS */
 .firework{
   position:fixed;
   width:6px;
@@ -196,7 +219,7 @@ footer{
   to{transform:translate(var(--x),var(--y)) scale(0);opacity:0;}
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 @media(max-width:768px){
   .timeline::before{left:20px;}
   .t-item{justify-content:flex-start;}
@@ -207,7 +230,7 @@ footer{
 
 <body>
 
-<!-- 🔐 LOCK SCREEN -->
+<!-- LOCK -->
 <div class="lock" id="lock">
   <div class="lock-box">
     <h2>Only for Janshi ❤️</h2>
@@ -217,7 +240,7 @@ footer{
   </div>
 </div>
 
-<!-- 💖 VALENTINE POPUP -->
+<!-- POPUP -->
 <div class="popup" id="popup" style="display:none;">
   <div class="popup-box">
     <h2>Will you be my Valentine? 💖</h2>
@@ -239,21 +262,35 @@ footer{
 <section>
   <h2>Our Story 💕</h2>
   <div class="box">
-    Our story didn’t begin with conversations.  
-    It began quietly, with destiny.
-
     On 10th September 2025, we saw each other for the first time
     at Mr. Jigar’s birthday. We didn’t talk that day,
-    but something had already begun.
+    but destiny had already noticed us.
 
-    Later, on 24th September 2025, during Navratri night,
-    we went for tea at Rajwadi. That night, we talked properly,
-    laughed, and slowly became good friends.
+    On 24th September 2025, during Navratri night,
+    we went for tea at Rajwadi. That night we talked,
+    laughed, and became good friends.
 
-    With time, friendship turned into feelings.
-    On 18th October 2025, I expressed my love,
-    and when you said “YES”,
-    our love story truly began.
+    On 18th October 2025, I expressed my feelings.
+    When you said YES, our love story truly began.
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <h2>Our Memories 📸</h2>
+  <div class="gallery">
+    <figure>
+      <img src="photo1.jpg">
+      <figcaption>The moment everything changed</figcaption>
+    </figure>
+    <figure>
+      <img src="photo2.jpg">
+      <figcaption>Smiles that mean everything</figcaption>
+    </figure>
+    <figure>
+      <img src="photo3.jpg">
+      <figcaption>Us, always</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -280,40 +317,35 @@ footer{
     <div class="t-item">
       <div class="t-card">
         <div class="t-date">10 September 2025</div>
-        We saw each other for the first time at Mr. Jigar’s birthday.
-        No conversation, no words — just destiny noticing us.
+        First time we saw each other at Mr. Jigar’s birthday.
       </div>
     </div>
 
     <div class="t-item right">
       <div class="t-card">
         <div class="t-date">24 September 2025</div>
-        Navratri night at Rajwadi.
-        We talked, smiled, and became good friends.
-        This is where everything truly started.
+        Navratri night at Rajwadi — we talked and became good friends.
       </div>
     </div>
 
     <div class="t-item">
       <div class="t-card">
         <div class="t-date">18 October 2025</div>
-        I proposed, you said YES.
-        Friendship turned into love,
-        and my heart finally found its home.
+        I proposed. You said YES. Our love story began.
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- FUTURE PROMISE -->
+<!-- PROMISE -->
 <section>
   <h2>Our Future Promise 💍</h2>
   <div class="promise">
-    Janshi, I promise to stand by you in every situation.
-    In happiness and in struggle, in silence and in laughter.
     No matter where life takes us,
-    my hand will always be holding yours.
+    I promise to stand by you,
+    hold your hand,
+    and love you endlessly.
     Today, tomorrow, and forever.
   </div>
 </section>
@@ -323,8 +355,8 @@ footer{
   <h2>A Letter From My Heart 💌</h2>
   <div class="box">
     Dear Janshi,<br><br>
-    Loving you is the most beautiful thing I have ever done.
-    You are my happiness, my peace, and my forever.<br><br>
+    You are my happiness, my peace, and my forever.
+    I promise to love you more with every passing day.<br><br>
     Forever yours,<br>
     Nayan ❤️
   </div>
