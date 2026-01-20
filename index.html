@@ -14,14 +14,14 @@ body{
   font-family:'Poppins',sans-serif;
   background:linear-gradient(180deg,#ffe4ec,#fff0f5,#ffffff);
   text-align:center;
-  overflow-x:hidden;
 }
 h1,h2{
   font-family:'Great Vibes',cursive;
   color:#d6336c;
-  text-shadow:0 6px 14px rgba(214,51,108,.35);
 }
-section{padding:90px 20px;}
+section{
+  padding:90px 20px;
+}
 
 /* ===== LOCK SCREEN ===== */
 .lock{
@@ -31,7 +31,7 @@ section{padding:90px 20px;}
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:3000;
+  z-index:5000;
 }
 .lock-box{
   background:#fff;
@@ -41,8 +41,12 @@ section{padding:90px 20px;}
   max-width:360px;
   box-shadow:0 30px 60px rgba(214,51,108,.35);
 }
-.lock-box h2{font-size:2.4rem;}
-.lock-box p{color:#a61e4d;}
+.lock-box h2{
+  font-size:2.3rem;
+}
+.lock-box p{
+  color:#a61e4d;
+}
 .lock-box input{
   width:100%;
   padding:15px;
@@ -75,7 +79,7 @@ section{padding:90px 20px;}
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:2000;
+  z-index:3000;
 }
 .popup-box{
   background:#fff;
@@ -110,25 +114,25 @@ button{
   flex-direction:column;
   justify-content:center;
 }
-.hero p{color:#a61e4d;font-size:1.1rem;}
+.hero p{color:#a61e4d;}
 .names{
   font-size:1.8rem;
   color:#ff4d6d;
   margin-top:18px;
 }
 
-/* ===== GLASS BOX ===== */
+/* ===== BOX ===== */
 .box{
   max-width:950px;
   margin:auto;
-  background:rgba(255,255,255,.9);
+  background:#fff;
   padding:40px;
   border-radius:40px;
-  box-shadow:0 35px 60px rgba(255,105,135,.35);
+  box-shadow:0 30px 55px rgba(255,105,135,.35);
   line-height:2;
 }
 
-/* ===== WHY I LOVE YOU ===== */
+/* ===== WHY LOVE ===== */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -145,9 +149,9 @@ button{
 
 /* ===== FUTURE PROMISE ===== */
 .promise{
-  background:linear-gradient(160deg,#ffe6ef,#fff);
   max-width:950px;
   margin:auto;
+  background:linear-gradient(160deg,#ffe6ef,#fff);
   padding:45px;
   border-radius:45px;
   box-shadow:0 40px 70px rgba(255,105,135,.4);
@@ -211,13 +215,12 @@ footer{
   <h2>Our Story 💕</h2>
   <div class="box">
     We met during Navratri, over a simple cup of tea at Rajwadi.
-    What started as normal conversation slowly became comfort.
-    Comfort turned into friendship, and friendship became love —
-    without us realizing when it happened.
+    What began as a normal conversation slowly turned into comfort,
+    friendship, and finally love.
   </div>
 </section>
 
-<!-- WHY I LOVE YOU -->
+<!-- WHY LOVE -->
 <section>
   <h2>Why I Love You 💖</h2>
   <div class="cards">
@@ -234,15 +237,9 @@ footer{
 <section>
   <h2>Our Future Promise 💍</h2>
   <div class="promise">
-    Janshi, this is my promise to you.<br><br>
-    I promise to stand by you in every situation —
-    in happiness, in sadness, in success, and in struggle.<br><br>
-    I promise to respect you, care for you,
-    and love you more with every passing day.<br><br>
-    No matter where life takes us,
-    my hand will always be holding yours.<br><br>
-    Today, tomorrow, and forever —
-    this journey is ours. ❤️
+    Janshi, I promise to stand by you in every situation.
+    To love you, respect you, and hold your hand no matter what life brings.
+    Today, tomorrow, and forever — this journey is ours. ❤️
   </div>
 </section>
 
@@ -253,8 +250,6 @@ footer{
     Dear Janshi,<br><br>
     Loving you is the most beautiful thing I have ever done.
     You are my happiness, my peace, and my strength.<br><br>
-    Please never leave my hand.
-    I promise to love you endlessly.<br><br>
     Forever yours,<br>
     Nayan ❤️
   </div>
@@ -266,16 +261,18 @@ footer{
 
 <!-- JS -->
 <script>
-const PASSWORD = "janshi@2026"; // 🔑 CHANGE PASSWORD HERE
+const PASSWORD = "Janshi@2025"; // 🔐 FINAL PASSWORD
 
 function unlock(){
-  const input=document.getElementById("pass").value;
-  const err=document.getElementById("error");
-  if(input===PASSWORD){
-    document.getElementById("lock").style.display="none";
-    document.getElementById("popup").style.display="flex";
-  }else{
-    err.style.display="block";
+  const input = document.getElementById("pass").value.trim();
+  const err = document.getElementById("error");
+
+  if(input === PASSWORD){
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("popup").style.display = "flex";
+    err.style.display = "none";
+  } else {
+    err.style.display = "block";
   }
 }
 
