@@ -8,22 +8,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* ===== BASE ===== */
+/* ================= BASE ================= */
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
   background:linear-gradient(180deg,#ffe4ec,#fff0f5,#ffffff);
   text-align:center;
+  overflow-x:hidden;
 }
 h1,h2{
   font-family:'Great Vibes',cursive;
   color:#d6336c;
+  text-shadow:0 6px 14px rgba(214,51,108,.35);
 }
-section{
-  padding:90px 20px;
-}
+section{padding:90px 20px;}
 
-/* ===== LOCK SCREEN ===== */
+/* ================= LOCK SCREEN ================= */
 .lock{
   position:fixed;
   inset:0;
@@ -41,19 +41,12 @@ section{
   max-width:360px;
   box-shadow:0 30px 60px rgba(214,51,108,.35);
 }
-.lock-box h2{
-  font-size:2.3rem;
-}
-.lock-box p{
-  color:#a61e4d;
-}
 .lock-box input{
   width:100%;
   padding:15px;
   border-radius:30px;
   border:1px solid #ddd;
-  font-size:1rem;
-  margin-top:18px;
+  margin-top:15px;
   text-align:center;
 }
 .lock-box button{
@@ -65,13 +58,9 @@ section{
   color:#fff;
   font-size:1rem;
 }
-.error{
-  color:#ff4d6d;
-  margin-top:12px;
-  display:none;
-}
+.error{color:#ff4d6d;display:none;margin-top:10px;}
 
-/* ===== POPUP ===== */
+/* ================= POPUP ================= */
 .popup{
   position:fixed;
   inset:0;
@@ -79,7 +68,7 @@ section{
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:3000;
+  z-index:4000;
 }
 .popup-box{
   background:#fff;
@@ -97,7 +86,6 @@ button{
   padding:14px 26px;
   border:none;
   border-radius:30px;
-  font-size:1rem;
 }
 #yesBtn{background:#ff4d6d;color:#fff;}
 #noBtn{
@@ -107,7 +95,7 @@ button{
   left:140px;
 }
 
-/* ===== HERO ===== */
+/* ================= HERO ================= */
 .hero{
   min-height:100vh;
   display:flex;
@@ -121,7 +109,7 @@ button{
   margin-top:18px;
 }
 
-/* ===== BOX ===== */
+/* ================= CONTENT BOX ================= */
 .box{
   max-width:950px;
   margin:auto;
@@ -132,7 +120,7 @@ button{
   line-height:2;
 }
 
-/* ===== WHY LOVE ===== */
+/* ================= WHY LOVE ================= */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -147,7 +135,38 @@ button{
   box-shadow:0 22px 40px rgba(214,51,108,.35);
 }
 
-/* ===== FUTURE PROMISE ===== */
+/* ================= TIMELINE ================= */
+.timeline{
+  max-width:900px;
+  margin:auto;
+  position:relative;
+  padding:40px 0;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:4px;
+  height:100%;
+  background:#ff4d6d;
+}
+.t-item{
+  width:100%;
+  display:flex;
+  margin:40px 0;
+}
+.t-item.right{justify-content:flex-end;}
+.t-card{
+  width:45%;
+  background:#fff;
+  padding:25px;
+  border-radius:30px;
+  box-shadow:0 20px 40px rgba(255,105,135,.35);
+}
+.t-date{color:#ff4d6d;font-weight:600;}
+
+/* ================= FUTURE PROMISE ================= */
 .promise{
   max-width:950px;
   margin:auto;
@@ -158,23 +177,30 @@ button{
   line-height:2;
 }
 
-/* ===== FOOTER ===== */
+/* ================= FOOTER ================= */
 footer{
   background:#ffd1dc;
   padding:30px;
   color:#a61e4d;
 }
 
-/* ===== CONFETTI ===== */
-.confetti{
+/* ================= FIREWORKS ================= */
+.firework{
   position:fixed;
-  width:12px;
-  height:12px;
-  top:-10px;
-  animation:fall 3.5s linear forwards;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  animation:explode 1.5s ease-out forwards;
 }
-@keyframes fall{
-  to{transform:translateY(120vh) rotate(720deg);}
+@keyframes explode{
+  to{transform:translate(var(--x),var(--y)) scale(0);opacity:0;}
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+  .timeline::before{left:20px;}
+  .t-item{justify-content:flex-start;}
+  .t-card{width:85%;margin-left:40px;}
 }
 </style>
 </head>
@@ -185,10 +211,9 @@ footer{
 <div class="lock" id="lock">
   <div class="lock-box">
     <h2>Only for Janshi ❤️</h2>
-    <p>Enter the secret password</p>
     <input type="password" id="pass" placeholder="Password">
     <button onclick="unlock()">Unlock 💖</button>
-    <div class="error" id="error">Wrong password 😢</div>
+    <div class="error" id="error">Wrong password</div>
   </div>
 </div>
 
@@ -214,9 +239,21 @@ footer{
 <section>
   <h2>Our Story 💕</h2>
   <div class="box">
-    We met during Navratri, over a simple cup of tea at Rajwadi.
-    What began as a normal conversation slowly turned into comfort,
-    friendship, and finally love.
+    Our story didn’t begin with conversations.  
+    It began quietly, with destiny.
+
+    On 10th September 2025, we saw each other for the first time
+    at Mr. Jigar’s birthday. We didn’t talk that day,
+    but something had already begun.
+
+    Later, on 24th September 2025, during Navratri night,
+    we went for tea at Rajwadi. That night, we talked properly,
+    laughed, and slowly became good friends.
+
+    With time, friendship turned into feelings.
+    On 18th October 2025, I expressed my love,
+    and when you said “YES”,
+    our love story truly began.
   </div>
 </section>
 
@@ -227,9 +264,45 @@ footer{
     <div class="card">You understand me without words</div>
     <div class="card">You support me in every situation</div>
     <div class="card">Your smile fixes my worst days</div>
-    <div class="card">You make me feel safe and valued</div>
+    <div class="card">You make me feel safe and loved</div>
     <div class="card">Your loyalty means everything to me</div>
     <div class="card">With you, life feels complete</div>
+    <div class="card">You believe in me more than I believe in myself</div>
+    <div class="card">Even silence feels beautiful with you</div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <h2>Our Love Timeline ⏳</h2>
+  <div class="timeline">
+
+    <div class="t-item">
+      <div class="t-card">
+        <div class="t-date">10 September 2025</div>
+        We saw each other for the first time at Mr. Jigar’s birthday.
+        No conversation, no words — just destiny noticing us.
+      </div>
+    </div>
+
+    <div class="t-item right">
+      <div class="t-card">
+        <div class="t-date">24 September 2025</div>
+        Navratri night at Rajwadi.
+        We talked, smiled, and became good friends.
+        This is where everything truly started.
+      </div>
+    </div>
+
+    <div class="t-item">
+      <div class="t-card">
+        <div class="t-date">18 October 2025</div>
+        I proposed, you said YES.
+        Friendship turned into love,
+        and my heart finally found its home.
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -238,8 +311,10 @@ footer{
   <h2>Our Future Promise 💍</h2>
   <div class="promise">
     Janshi, I promise to stand by you in every situation.
-    To love you, respect you, and hold your hand no matter what life brings.
-    Today, tomorrow, and forever — this journey is ours. ❤️
+    In happiness and in struggle, in silence and in laughter.
+    No matter where life takes us,
+    my hand will always be holding yours.
+    Today, tomorrow, and forever.
   </div>
 </section>
 
@@ -249,7 +324,7 @@ footer{
   <div class="box">
     Dear Janshi,<br><br>
     Loving you is the most beautiful thing I have ever done.
-    You are my happiness, my peace, and my strength.<br><br>
+    You are my happiness, my peace, and my forever.<br><br>
     Forever yours,<br>
     Nayan ❤️
   </div>
@@ -259,46 +334,41 @@ footer{
   Made with infinite love by Nayan for Janshi ❤️
 </footer>
 
-<!-- JS -->
 <script>
-const PASSWORD = "Janshi@2025"; // 🔐 FINAL PASSWORD
+const PASSWORD="Janshi@2025";
 
 function unlock(){
-  const input = document.getElementById("pass").value.trim();
-  const err = document.getElementById("error");
-
-  if(input === PASSWORD){
-    document.getElementById("lock").style.display = "none";
-    document.getElementById("popup").style.display = "flex";
-    err.style.display = "none";
-  } else {
-    err.style.display = "block";
+  const v=document.getElementById("pass").value.trim();
+  if(v===PASSWORD){
+    document.getElementById("lock").style.display="none";
+    document.getElementById("popup").style.display="flex";
+  }else{
+    document.getElementById("error").style.display="block";
   }
 }
 
-const yesBtn=document.getElementById("yesBtn");
 const noBtn=document.getElementById("noBtn");
-
-yesBtn.onclick=()=>{
-  document.getElementById("popup").style.display="none";
-  confetti();
-};
-
-function moveNo(){
+noBtn.onmouseover=noBtn.ontouchstart=()=>{
   noBtn.style.left=Math.random()*240+"px";
   noBtn.style.top=Math.random()*60+"px";
-}
-noBtn.addEventListener("mouseover",moveNo);
-noBtn.addEventListener("touchstart",moveNo);
+};
 
-function confetti(){
-  for(let i=0;i<120;i++){
-    const c=document.createElement("div");
-    c.className="confetti";
-    c.style.left=Math.random()*100+"vw";
-    c.style.background=`hsl(${Math.random()*360},100%,75%)`;
-    document.body.appendChild(c);
-    setTimeout(()=>c.remove(),4500);
+document.getElementById("yesBtn").onclick=()=>{
+  document.getElementById("popup").style.display="none";
+  fireworks();
+};
+
+function fireworks(){
+  for(let i=0;i<90;i++){
+    const f=document.createElement("div");
+    f.className="firework";
+    f.style.left="50vw";
+    f.style.top="50vh";
+    f.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    f.style.setProperty("--x",(Math.random()*600-300)+"px");
+    f.style.setProperty("--y",(Math.random()*600-300)+"px");
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1500);
   }
 }
 </script>
