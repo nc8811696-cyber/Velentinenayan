@@ -1,76 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Nayan ❤️ Janshi – Our Love Story</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Nayan ❤️ Janshi – Our Love Story</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    body{
-      margin:0;
-      font-family:'Poppins',sans-serif;
-      background:linear-gradient(180deg,#ffe4ec,#fff0f5,#ffffff);
-      text-align:center;
-    }
-    h1,h2{font-family:'Great Vibes',cursive;color:#d6336c;}
-    section{padding:60px 20px;}
-    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
-    .names{color:#ff4d6d;font-size:1.5rem;}
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(180deg,#ffe4ec,#fff0f5,#ffffff);
+  text-align:center;
+  overflow-x:hidden;
+}
+h1,h2{
+  font-family:'Great Vibes',cursive;
+  color:#d6336c;
+}
+section{padding:60px 20px;}
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.names{font-size:1.5rem;color:#ff4d6d;margin-top:15px;}
 
-    /* POPUP */
-    .popup{
-      position:fixed;
-      inset:0;
-      background:rgba(255,182,193,.9);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:999;
-    }
-    .popup-box{
-      background:#fff;
-      padding:30px;
-      border-radius:30px;
-      width:90%;
-      max-width:320px;
-    }
-    .buttons{
-      margin-top:20px;
-      position:relative;
-      height:70px;
-    }
-    button{
-      padding:12px 20px;
-      border:none;
-      border-radius:25px;
-      font-size:1rem;
-      cursor:pointer;
-    }
-    #yesBtn{background:#ff4d6d;color:#fff;}
-    #noBtn{
-      background:#adb5bd;
-      color:#fff;
-      position:absolute;
-      left:120px;
-    }
+.story,.timeline,.letter{
+  max-width:800px;
+  margin:auto;
+  line-height:1.9;
+}
 
-    /* GALLERY */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:20px;
-      max-width:900px;
-      margin:auto;
-    }
-    .gallery img{
-      width:100%;
-      border-radius:20px;
-    }
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  max-width:900px;
+  margin:auto;
+}
+.gallery img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(255,105,135,.3);
+}
 
-    footer{background:#ffd1dc;padding:20px;color:#a61e4d;}
-  </style>
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  max-width:900px;
+  margin:auto;
+}
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:25px;
+  box-shadow:0 10px 25px rgba(214,51,108,.3);
+}
+
+.letter{
+  background:#fff;
+  padding:30px;
+  border-radius:30px;
+  box-shadow:0 15px 30px rgba(255,105,135,.3);
+}
+
+footer{
+  background:#ffd1dc;
+  padding:20px;
+  color:#a61e4d;
+}
+
+/* POPUP */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(255,182,193,.9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.popup-box{
+  background:#fff;
+  padding:30px;
+  border-radius:30px;
+  width:90%;
+  max-width:320px;
+}
+.buttons{
+  margin-top:20px;
+  position:relative;
+  height:70px;
+}
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:25px;
+  font-size:1rem;
+  cursor:pointer;
+}
+#yesBtn{background:#ff4d6d;color:#fff;}
+#noBtn{
+  background:#adb5bd;
+  color:#fff;
+  position:absolute;
+  left:120px;
+}
+</style>
 </head>
 
 <body>
@@ -86,18 +126,65 @@
   </div>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <h1>Janshi, You Are My Forever ❤️</h1>
   <p>A love story written by destiny</p>
   <div class="names">Nayan & Janshi</div>
 </section>
 
+<!-- STORY -->
+<section>
+  <h2>Our Story 💕</h2>
+  <div class="story">
+    We met for the first time during Navratri. Our families went for tea together at Rajwadi.
+    At first, we started talking casually. Slowly, those talks turned into friendship.
+    We became good friends, and with time, that friendship turned into love.
+  </div>
+</section>
+
+<!-- GALLERY -->
 <section>
   <h2>Our Memories 📸</h2>
   <div class="gallery">
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
+    <img src="photo1.jpg" alt="">
+    <img src="photo2.jpg" alt="">
+    <img src="photo3.jpg" alt="">
+  </div>
+</section>
+
+<!-- WHY I LOVE YOU -->
+<section>
+  <h2>Why I Love You 💖</h2>
+  <div class="cards">
+    <div class="card">You are supportive</div>
+    <div class="card">You are loyal to me</div>
+    <div class="card">You are cute</div>
+    <div class="card">I love your nature</div>
+    <div class="card">You make me feel loved</div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <h2>Our Love Timeline ⏳</h2>
+  <div class="timeline">
+    ❤️ First Met: 10 September 2025<br><br>
+    💍 Relationship Started: 18 December 2025
+  </div>
+</section>
+
+<!-- LETTER -->
+<section>
+  <h2>A Letter From My Heart 💌</h2>
+  <div class="letter">
+    Dear Janshi,<br><br>
+    From the moment you came into my life, everything changed.
+    You became my happiness, my peace, and my strength.
+    Every smile of yours means the world to me.<br><br>
+    Please don’t ever leave me. I love you so much, more than words can explain.<br><br>
+    Forever yours,<br>
+    Nayan ❤️
   </div>
 </section>
 
@@ -105,24 +192,23 @@
   Made with infinite love by Nayan for Janshi ❤️
 </footer>
 
-<!-- INLINE JS (FORCED WORKING) -->
+<!-- INLINE JS -->
 <script>
-  const popup = document.getElementById("popup");
-  const yesBtn = document.getElementById("yesBtn");
-  const noBtn = document.getElementById("noBtn");
+const popup=document.getElementById("popup");
+const yesBtn=document.getElementById("yesBtn");
+const noBtn=document.getElementById("noBtn");
 
-  yesBtn.onclick = () => {
-    popup.style.display = "none";
-    alert("Yayyy 💖 I love you Janshi ❤️");
-  };
+yesBtn.onclick=()=>{
+  popup.style.display="none";
+  alert("Yayyy 💖 I love you Janshi ❤️");
+};
 
-  function moveNo(){
-    noBtn.style.left = Math.random()*200 + "px";
-    noBtn.style.top = Math.random()*40 + "px";
-  }
-
-  noBtn.addEventListener("mouseover", moveNo);
-  noBtn.addEventListener("touchstart", moveNo);
+function moveNo(){
+  noBtn.style.left=Math.random()*200+"px";
+  noBtn.style.top=Math.random()*40+"px";
+}
+noBtn.addEventListener("mouseover",moveNo);
+noBtn.addEventListener("touchstart",moveNo);
 </script>
 
 </body>
