@@ -5,16 +5,77 @@
   <title>Nayan ❤️ Janshi – Our Love Story</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(180deg,#ffe4ec,#fff0f5,#ffffff);
+      text-align:center;
+    }
+    h1,h2{font-family:'Great Vibes',cursive;color:#d6336c;}
+    section{padding:60px 20px;}
+    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
+    .names{color:#ff4d6d;font-size:1.5rem;}
+
+    /* POPUP */
+    .popup{
+      position:fixed;
+      inset:0;
+      background:rgba(255,182,193,.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:999;
+    }
+    .popup-box{
+      background:#fff;
+      padding:30px;
+      border-radius:30px;
+      width:90%;
+      max-width:320px;
+    }
+    .buttons{
+      margin-top:20px;
+      position:relative;
+      height:70px;
+    }
+    button{
+      padding:12px 20px;
+      border:none;
+      border-radius:25px;
+      font-size:1rem;
+      cursor:pointer;
+    }
+    #yesBtn{background:#ff4d6d;color:#fff;}
+    #noBtn{
+      background:#adb5bd;
+      color:#fff;
+      position:absolute;
+      left:120px;
+    }
+
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+      max-width:900px;
+      margin:auto;
+    }
+    .gallery img{
+      width:100%;
+      border-radius:20px;
+    }
+
+    footer{background:#ffd1dc;padding:20px;color:#a61e4d;}
+  </style>
 </head>
 
 <body>
 
-<!-- ================= POPUP ================= -->
+<!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
     <h2>Will you be my Valentine? 💖</h2>
@@ -25,82 +86,44 @@
   </div>
 </div>
 
-<!-- ================= HERO ================= -->
 <section class="hero">
   <h1>Janshi, You Are My Forever ❤️</h1>
   <p>A love story written by destiny</p>
   <div class="names">Nayan & Janshi</div>
 </section>
 
-<!-- ================= STORY ================= -->
-<section>
-  <h2>Our Story 💕</h2>
-  <p class="story">
-    We met for the first time during Navratri. Our families went for tea together at Rajwadi.
-    At first, we started talking casually. Slowly, those talks turned into friendship.
-    We became good friends, and with time, that friendship turned into love.
-  </p>
-</section>
-
-<!-- ================= GALLERY ================= -->
 <section>
   <h2>Our Memories 📸</h2>
   <div class="gallery">
-    <div class="gallery-item">
-      <img src="photo1.jpg" alt="Memory 1">
-      <p>The moment everything changed</p>
-    </div>
-    <div class="gallery-item">
-      <img src="photo2.jpg" alt="Memory 2">
-      <p>Smiles that mean everything</p>
-    </div>
-    <div class="gallery-item">
-      <img src="photo3.jpg" alt="Memory 3">
-      <p>Us, always</p>
-    </div>
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
   </div>
 </section>
 
-<!-- ================= WHY I LOVE YOU ================= -->
-<section>
-  <h2>Why I Love You 💖</h2>
-  <div class="cards">
-    <div class="card">You are supportive</div>
-    <div class="card">You are loyal to me</div>
-    <div class="card">You are cute</div>
-    <div class="card">I love your nature</div>
-    <div class="card">You make me feel loved</div>
-  </div>
-</section>
-
-<!-- ================= TIMELINE ================= -->
-<section>
-  <h2>Our Love Timeline ⏳</h2>
-  <p>❤️ First Met: 10 September 2025</p>
-  <p>💍 Relationship Started: 18 December 2025</p>
-</section>
-
-<!-- ================= LETTER ================= -->
-<section>
-  <h2>A Letter From My Heart 💌</h2>
-  <div class="letter">
-    Dear Janshi,<br><br>
-    From the moment you came into my life, everything changed.
-    You became my happiness, my peace, and my strength.
-    Every smile of yours means the world to me.<br><br>
-    Please don’t ever leave me. I love you so much, more than words can explain.<br><br>
-    Forever yours,<br>
-    Nayan ❤️
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
 <footer>
   Made with infinite love by Nayan for Janshi ❤️
 </footer>
 
-<!-- ================= JS ================= -->
-<script src="script.js"></script>
+<!-- INLINE JS (FORCED WORKING) -->
+<script>
+  const popup = document.getElementById("popup");
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+
+  yesBtn.onclick = () => {
+    popup.style.display = "none";
+    alert("Yayyy 💖 I love you Janshi ❤️");
+  };
+
+  function moveNo(){
+    noBtn.style.left = Math.random()*200 + "px";
+    noBtn.style.top = Math.random()*40 + "px";
+  }
+
+  noBtn.addEventListener("mouseover", moveNo);
+  noBtn.addEventListener("touchstart", moveNo);
+</script>
 
 </body>
 </html>
