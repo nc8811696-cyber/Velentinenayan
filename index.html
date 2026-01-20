@@ -8,91 +8,110 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+/* ===== BASE ===== */
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(#ffe4ec,#fff0f5,#ffffff);
+  background:linear-gradient(180deg,#ffe4ec,#fff0f5,#ffffff);
   text-align:center;
+  overflow-x:hidden;
 }
-
 h1,h2{
   font-family:'Great Vibes',cursive;
   color:#d6336c;
+  text-shadow:0 4px 12px rgba(214,51,108,.35);
 }
-
 section{
-  padding:60px 20px;
+  padding:70px 20px;
+  animation:fadeUp 1s ease both;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
   min-height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
 }
+.hero p{color:#a61e4d;}
 .names{
-  font-size:1.5rem;
+  font-size:1.6rem;
   color:#ff4d6d;
-  margin-top:10px;
+  margin-top:15px;
 }
 
-/* STORY / TEXT */
-.story,.timeline{
-  max-width:800px;
+/* ===== GLASS CARDS ===== */
+.card-box{
+  max-width:900px;
   margin:auto;
-  line-height:1.8;
+  background:rgba(255,255,255,.85);
+  padding:30px;
+  border-radius:30px;
+  box-shadow:0 20px 40px rgba(255,105,135,.25);
+  line-height:1.9;
 }
 
-/* GALLERY */
+/* ===== GALLERY ===== */
 .gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  max-width:900px;
+  margin:auto;
+}
+.gallery img{
+  width:100%;
+  border-radius:22px;
+  box-shadow:0 15px 35px rgba(255,105,135,.35);
+  transition:.4s;
+}
+.gallery img:hover{transform:scale(1.06);}
+
+/* ===== WHY I LOVE YOU ===== */
+.cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:20px;
   max-width:900px;
   margin:auto;
 }
-.gallery img{
-  width:100%;
-  border-radius:20px;
+.card{
+  background:linear-gradient(145deg,#fff,#ffe6ef);
+  padding:22px;
+  border-radius:25px;
+  box-shadow:0 15px 30px rgba(214,51,108,.3);
+  transition:.4s;
 }
+.card:hover{transform:translateY(-10px);}
 
-/* WHY I LOVE YOU */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
+/* ===== LETTER ===== */
+.letter{
   max-width:900px;
   margin:auto;
-}
-.card{
-  background:#fff;
-  padding:20px;
-  border-radius:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
-
-/* LETTER */
-.letter{
-  max-width:800px;
-  margin:auto;
-  background:#fff;
-  padding:30px;
-  border-radius:25px;
+  background:linear-gradient(145deg,#fff,#ffe6ef);
+  padding:35px;
+  border-radius:35px;
+  box-shadow:0 25px 45px rgba(255,105,135,.35);
+  line-height:1.9;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
   background:#ffd1dc;
-  padding:20px;
+  padding:25px;
   color:#a61e4d;
+  box-shadow:0 -15px 30px rgba(214,51,108,.25);
 }
 
-/* POPUP */
+/* ===== POPUP ===== */
 .popup{
   position:fixed;
   inset:0;
-  background:rgba(255,182,193,0.95);
+  background:rgba(255,182,193,.95);
   display:flex;
   justify-content:center;
   align-items:center;
@@ -101,7 +120,7 @@ footer{
 .popup-box{
   background:#fff;
   padding:30px;
-  border-radius:25px;
+  border-radius:30px;
   width:90%;
   max-width:320px;
 }
@@ -111,15 +130,12 @@ footer{
   height:70px;
 }
 button{
-  padding:12px 20px;
+  padding:12px 22px;
   border:none;
   border-radius:25px;
   font-size:1rem;
 }
-#yesBtn{
-  background:#ff4d6d;
-  color:#fff;
-}
+#yesBtn{background:#ff4d6d;color:#fff;}
 #noBtn{
   background:#999;
   color:#fff;
@@ -131,7 +147,7 @@ button{
 
 <body>
 
-<!-- POPUP -->
+<!-- ===== POPUP ===== -->
 <div class="popup" id="popup">
   <div class="popup-box">
     <h2>Will you be my Valentine? 💖</h2>
@@ -142,24 +158,24 @@ button{
   </div>
 </div>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <section class="hero">
   <h1>Janshi, You Are My Forever ❤️</h1>
   <p>A love story written by destiny</p>
   <div class="names">Nayan & Janshi</div>
 </section>
 
-<!-- STORY -->
+<!-- ===== STORY ===== -->
 <section>
   <h2>Our Story 💕</h2>
-  <div class="story">
+  <div class="card-box">
     We met for the first time during Navratri. Our families went for tea together at Rajwadi.
-    At first, we started talking casually. Slowly, those talks turned into friendship.
-    We became good friends, and with time, that friendship turned into love.
+    At first, we talked casually. Slowly, those conversations became comfort.
+    That comfort turned into friendship, and with time, friendship quietly turned into love.
   </div>
 </section>
 
-<!-- GALLERY -->
+<!-- ===== GALLERY ===== -->
 <section>
   <h2>Our Memories 📸</h2>
   <div class="gallery">
@@ -169,28 +185,39 @@ button{
   </div>
 </section>
 
-<!-- WHY I LOVE YOU -->
+<!-- ===== WHY I LOVE YOU ===== -->
 <section>
   <h2>Why I Love You 💖</h2>
   <div class="cards">
-    <div class="card">You are supportive</div>
-    <div class="card">You are loyal to me</div>
-    <div class="card">You are cute</div>
-    <div class="card">I love your nature</div>
-    <div class="card">You make me feel loved</div>
+    <div class="card">You support me in every situation</div>
+    <div class="card">Your loyalty makes me feel safe</div>
+    <div class="card">Your cuteness melts my heart</div>
+    <div class="card">I love your beautiful nature</div>
+    <div class="card">You make me feel truly loved</div>
   </div>
 </section>
 
-<!-- TIMELINE -->
+<!-- ===== TIMELINE (REWRITTEN) ===== -->
 <section>
   <h2>Our Love Timeline ⏳</h2>
-  <div class="timeline">
-    ❤️ First Met: 10 September 2025<br><br>
-    💍 Relationship Started: 18 December 2025
+  <div class="card-box">
+    💫 <b>10 September 2025 – When It All Began</b><br><br>
+    During Navratri, a simple meeting, a cup of tea at Rajwadi,
+    and a few innocent conversations marked the beginning of something special.
+    That day didn’t feel magical at first,
+    but destiny was quietly writing our story.
+
+    <br><br><br>
+
+    ❤️ <b>18 December 2025 – The Day We Became “Us”</b><br><br>
+    Friendship turned into feelings, and feelings turned into love.
+    On this day, my heart chose you completely.
+    Not just for a moment, but for every tomorrow,
+    with a promise of togetherness, trust, and forever.
   </div>
 </section>
 
-<!-- LETTER -->
+<!-- ===== LETTER ===== -->
 <section>
   <h2>A Letter From My Heart 💌</h2>
   <div class="letter">
@@ -198,7 +225,8 @@ button{
     From the moment you came into my life, everything changed.
     You became my happiness, my peace, and my strength.
     Every smile of yours means the world to me.<br><br>
-    Please don’t ever leave me. I love you so much, more than words can explain.<br><br>
+    Please don’t ever leave me.
+    I love you more than words can ever explain.<br><br>
     Forever yours,<br>
     Nayan ❤️
   </div>
@@ -208,7 +236,7 @@ button{
   Made with infinite love by Nayan for Janshi ❤️
 </footer>
 
-<!-- JS (SIMPLE & SAFE) -->
+<!-- ===== JS ===== -->
 <script>
 const popup=document.getElementById("popup");
 const yesBtn=document.getElementById("yesBtn");
@@ -216,16 +244,40 @@ const noBtn=document.getElementById("noBtn");
 
 document.body.style.overflow="hidden";
 
-yesBtn.onclick=function(){
+yesBtn.onclick=()=>{
   popup.style.display="none";
   document.body.style.overflow="auto";
+  alert("Yayyy 💖 I love you Janshi ❤️");
 };
 
-noBtn.onmouseover=noBtn.ontouchstart=function(){
+function moveNo(){
   noBtn.style.left=Math.random()*200+"px";
   noBtn.style.top=Math.random()*40+"px";
-};
+}
+noBtn.addEventListener("mouseover",moveNo);
+noBtn.addEventListener("touchstart",moveNo);
+
+/* Floating hearts */
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.innerHTML="❤️";
+  h.style.position="fixed";
+  h.style.left=Math.random()*100+"vw";
+  h.style.bottom="-20px";
+  h.style.fontSize=(14+Math.random()*20)+"px";
+  h.style.opacity="0.8";
+  h.style.animation="float 6s linear";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},700);
 </script>
 
+<style>
+@keyframes float{
+  from{transform:translateY(0);opacity:0;}
+  to{transform:translateY(-110vh);opacity:1;}
+}
+</style>
+
 </body>
-      </html>
+</html>
